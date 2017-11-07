@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
+import { sync } from 'vuex-router-sync'
 
 /*
 * import vuetify and add it to vue
@@ -14,12 +16,15 @@ import 'mdi/css/materialdesignicons.css'
 
 Vue.use(Vuetify)
 
+sync(store, router)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

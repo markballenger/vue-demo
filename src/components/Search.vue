@@ -11,7 +11,7 @@
           </v-btn>
         </v-toolbar>
         <v-list two-line>
-          <template v-for="item in items">
+          <template v-for="item in searchResults">
             <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
             <v-divider v-else-if="item.divider" v-bind:inset="item.inset"></v-divider>
             <v-list-tile avatar v-else v-bind:key="item.title" @click="">
@@ -30,14 +30,20 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        items: [
-            { name: 'Jimi Hendrix' },
-            { name: 'PinkFloyd' }
-        ]
-      }
+import { mapGetters, mapActions } from 'vuex'
+export default {
+    mounted () {
+        this.getSearchResults()
+    },
+    computed: {
+        ...mapGetters([
+            'searchResults'
+        ])
+    },
+    methods: {
+        ...mapActions([
+            'getSearchResults'
+        ])
     }
-  }
+}
 </script>
