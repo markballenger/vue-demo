@@ -4,6 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+/*
+* import vuetify and add it to vue
+* also import mdi materialdesignicons for icons
+*/
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import 'mdi/css/materialdesignicons.css'
+
+Vue.use(Vuetify)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
