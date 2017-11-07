@@ -33,7 +33,7 @@ export default {
     mounted () {
         if (this.$route.params.accessToken && this.$route.params.refreshToken) {
             this.setTokens(this.$route.params)
-            // this.$router.push('/search')
+            this.$router.push('/search')
         }
     },
     computed: {

@@ -41,7 +41,11 @@ const actions = {
   }, 300),
   updateLoading: _.debounce(function ({commit}, loading) {
     commit('update_loading', loading)
-  }, 200)
+  }, 200),
+  updateSearchText ({commit, state, rootState}, searchText) {
+    commit('update_search_text', searchText)
+    this.dispatch('getSearchResults')
+  }
 }
 
 /**
@@ -53,6 +57,9 @@ const mutations = {
   },
   update_loading (state, loading) {
     state.loading = loading
+  },
+  update_search_text (state, searchText) {
+    state.searchText = searchText
   }
 }
 
@@ -61,7 +68,8 @@ const mutations = {
  */
 const getters = {
   searchResults: x => x.searchResults,
-  loading: x => x.loading
+  loading: x => x.loading,
+  searchText: x => x.searchText
 }
 
 export default {
